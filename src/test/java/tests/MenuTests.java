@@ -1,6 +1,7 @@
 package tests;
 
 import Elements.DropdownMenu;
+import Pages.SiteMainPage;
 import Pages.StartHf5Page;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -27,5 +28,13 @@ public class MenuTests extends BaseTest {
         Assertions.assertEquals("Зарабатываем деньги", menu.getMenuItemText(11));
         Assertions.assertEquals("Руководства", menu.getMenuItemText(12));
         Assertions.assertEquals("Пасхальные яйца", menu.getMenuItemText(13));
+    }
+
+    @Test
+    public void navigateToSite() {
+        open("https://www.rpg-club.com/lineage/info/hf5/");
+        StartHf5Page startHf5Page = new StartHf5Page();
+        startHf5Page.navigationHeaderBar.clickPlus().clickItemByText("Сайт RPG-CLUB");
+        Assertions.assertEquals("Выбери сервер:", new SiteMainPage().getLeftSideBarHeader());
     }
 }

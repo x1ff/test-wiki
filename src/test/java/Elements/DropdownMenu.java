@@ -18,6 +18,10 @@ public class DropdownMenu extends BaseElement {
         return  menuItemText;
     }
 
+    public void clickItemByText(String itemName) {
+        click(By.xpath(String.format("//ul[@class='suckerfish todo']//a[text()='%s']", itemName)));
+    }
+
     @Override
     public void waitVisibility() {
         super.waitVisibility();
